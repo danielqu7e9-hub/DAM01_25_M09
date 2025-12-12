@@ -1,0 +1,83 @@
+{
+    "assets": {
+        "path": "assets",
+        "type": "folder",
+        "children": {
+            "css": {
+                "path": "assets/css",
+                "type": "folder",
+                "children": {
+                    "style.css": {
+                        "path": "assets/css/style.css",
+                        "type": "file"
+                    }
+                }
+            },
+            "img_repo": {
+                "path": "assets/img_repo",
+                "type": "folder",
+                "children": {
+                    "placeholder.png": {
+                        "path": "assets/img_repo/placeholder.png",
+                        "type": "file"
+                    }
+                }
+            },
+            "js": {
+                "path": "assets/js",
+                "type": "folder",
+                "children": {
+                    "app.js": {
+                        "path": "assets/js/app.js",
+                        "type": "file"
+                    }
+                }
+            }
+        }
+    },
+    "instalador02.py": {
+        "path": "instalador02.py",
+        "type": "file"
+    },
+    "installers_old": {
+        "path": "installers_old",
+        "type": "folder",
+        "children": {
+            "instalador01.py": {
+                "path": "installers_old/instalador01.py",
+                "type": "file"
+            }
+        }
+    },
+    "modules": {
+        "path": "modules",
+        "type": "folder",
+        "children": {
+            "M04": {
+                "path": "modules/M04",
+                "type": "folder",
+                "children": {
+                    "exemple_apunts.txt": {
+                        "path": "modules/M04/exemple_apunts.txt",
+                        "type": "file"
+                    }
+                }
+            },
+            "M09": {
+                "path": "modules/M09",
+                "type": "folder",
+                "children": {}
+            }
+        }
+    },
+    "templates": {
+        "path": "templates",
+        "type": "folder",
+        "children": {
+            "base_template.html": {
+                "path": "templates/base_template.html",
+                "type": "file"
+            }
+        }
+    }
+}
