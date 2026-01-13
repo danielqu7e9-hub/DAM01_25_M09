@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ca">
+    <head>
+        <meta charset="UTF-8">
+        <title>Damas</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <script>
+            let body = document.body;
+
+            let damas = document.createElement("div");
+            damas.className = "damas";
+            body.appendChild(damas);
+
+            let changer = false;
+
+            let llistaMultiples = [7, 15, 23, 31, 39, 47, 55];
+            for (let i = 0; i < 64 ; i++) {
+                    let cuadrado = document.createElement("p");
+                    if (i >= 0 && i <= 15) {
+                        cuadrado.textContent = `O`;
+                    } else if (i >= 48 && i <= 63) {
+                        cuadrado.textContent = `X`;
+                    }
+                    
+                    if (changer) {
+                        cuadrado.className = "par";
+                    } else {
+                        cuadrado.className = "impar";
+                    }
+
+                    if (llistaMultiples.includes(i)) {
+                        changer = changer;
+                    } else {
+                        changer = !changer;
+                    }
+
+                    damas.appendChild(cuadrado);
+            }
+        </script>
+    </body>
+</html>

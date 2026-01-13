@@ -1,0 +1,92 @@
+Polideportivo:
+  socios:
+    - num_socio: "S01"
+      nombre: "Laura Martínez"
+      edad: "28"
+      correo: "laura@gmail.com"
+      tipo: "adulto"
+
+    - num_socio: "S02"
+      nombre: "Pablo Torres"
+      dad: "13"
+      correo: "ptorres@gmail.com"
+      tipo: "infantil"
+
+    - num_socio: "S03"
+      nombre: "María López"
+      edad: "42"
+      correo: "maria.lopez@gmail.com"
+      tipo: "premium"
+
+    - num_socio: "S04"
+      nombre: "Daniel Romero"
+      edad: "35"
+      correo: "dromero@gmail.com"
+      tipo: "adulto"
+
+  entrenadores:
+    - codigo_entrenador: "E01"
+      nombre: "Marta González"
+      precioHora: "22"
+      especialidades:
+        - "Yoga"
+        - "Pilates"
+
+    - codigo_entrenador: "E02"
+      nombre: "Alex Pérez"
+      precioHora: "18"
+      especialidades:
+        - "Spinning"
+
+    - codigo_entrenador: "E03"
+      nombre: "Laura Torres"
+      precioHora: "25"
+      especialidades:
+        - "Crossfit"
+        - "HIIT"
+        - "Funcional"
+
+  actividades:
+    - codigo_actividad: "A01"
+      nombre: "Yoga Suave"
+      codigo_entrenador: "E01"
+      aula: "Sala 1"
+      horario: "09:00-10:00"
+      estado: "activa"
+      reservas:
+        - num_socio: "S001"
+        - num_socio: "S003"
+
+    - codigo_actividad: "A02"
+      nombre: "Spinning Pro"
+      codigo_entrenador: "E02"
+      aula: "Sala 3"
+      horario: "18:00-19:00"
+      estado: "activa"
+      reservas:
+        - num_socio: "S002"
+        - num_socio: "S004"
+
+    - codigo_actividad: "A03"
+      nombre: "Crossfit Power"
+      codigo_entrenador: "E03"
+      aula: "Sala 2"
+      horario: "20:00-21:00"
+      estado: "suspendida"
+      reservas:
+        - num_socio: "S003"
+
+    - codigo_actividad: "A04"
+      nombre: "HIIT Express"
+      codigo_entrenador: "E03"
+      aula: "Sala 2"
+      horario: "07:00-07:45"
+      estado: "activa"
+      reservas:
+
+  datos_polideportivo:
+    nombre: "Polideportivo Central"
+    codigo: "PD-08019"
+    direccion: "Av. Carrer Marina, 31"
+    aforo_max: "500"
+    ciudad: "Barcelona"

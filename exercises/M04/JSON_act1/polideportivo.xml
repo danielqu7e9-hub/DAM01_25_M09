@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<polideportivo id="PD-08019" >
+    <info>
+        <nombre>Polideportivo DAM ITB</nombre>
+        <direccion>Av. Carrer Marina, 31</direccion>
+        <aforo_max>500</aforo_max>
+        <ciudad>Barcelona</ciudad>
+    </info>
+
+    <socios>
+
+        <socio id="S001">
+            <nombre>Laura Martínez</nombre>
+            <edad>28</edad>
+            <correo>laura@gmail.com</correo>
+            <tipo>adulto</tipo>
+        </socio>
+
+        <socio id="S002">
+            <nombre>Pablo Torres</nombre>
+            <edad>13</edad>
+            <correo>ptorres@gmail.com</correo>
+            <tipo>infantil</tipo>
+        </socio>
+
+        <socio id="S003">
+            <nombre>María López</nombre>
+            <edad>42</edad>
+            <correo>maria.lopez@gmail.com</correo>
+            <tipo>premium</tipo>
+        </socio>
+
+        <socio id="S004">
+            <nombre>Daniel Romero</nombre>
+            <edad>35</edad>
+            <correo>dromero@gmail.com</correo>
+            <tipo>adulto</tipo>
+        </socio>
+
+    </socios>
+
+    <entrenadores>
+
+        <entrenador id="E01">
+            <nombre>Marta González</nombre>
+            <precioHora>22</precioHora>
+            <especialidades>
+                <especialidad>Yoga</especialidad>
+                <especialidad>Pilates</especialidad>
+            </especialidades>
+        </entrenador>
+
+        <entrenador id="E02">
+            <nombre>Alex Pérez</nombre>
+            <precioHora>18</precioHora>
+            <especialidades>
+                <especialidad>Spinning</especialidad>
+            </especialidades>
+        </entrenador>
+
+        <entrenador id="E03">
+            <nombre>Laura Torres</nombre>
+            <precioHora>25</precioHora>
+            <especialidades>
+                <especialidad>Crossfit</especialidad>
+                <especialidad>HIIT</especialidad>
+                <especialidad>Funcional</especialidad>
+            </especialidades>
+        </entrenador>
+
+    </entrenadores>
+
+    <actividades>
+
+        <actividad id="A01">
+            <nombre>Yoga Suave</nombre>
+            <codigo_entrenador idref="E01"/>
+            <aula>Sala 1</aula>
+            <horario>09:00-10:00</horario>
+            <estado>activa</estado>
+            <reservas>
+                <reserva>S001</reserva>
+                <reserva>S003</reserva>
+            </reservas>
+        </actividad>
+
+        <actividad id="A02">
+            <nombre>Spinning Pro</nombre>
+            <codigo_entrenador idref="E02"/>
+            <aula>Sala 3</aula>
+            <horario>18:00-19:00</horario>
+            <estado>activa</estado>
+            <reservas>
+                <reserva>S002</reserva>
+                <reserva>S004</reserva>
+            </reservas>
+        </actividad>
+
+        <actividad id="A03">
+            <nombre>Crossfit Power</nombre>
+            <codigo_entrenador idref="E03"/>
+            <aula>Sala 2</aula>
+            <horario>20:00-21:00</horario>
+            <estado>suspendida</estado>
+            <reservas>
+                <reserva>S003</reserva>
+            </reservas>
+        </actividad>
+
+        <actividad id="A04">
+            <nombre>HIIT Express</nombre>
+            <codigo_entrenador idref="E03"/>
+            <aula>Sala 2</aula>
+            <horario>07:00-07:45</horario>
+            <estado>activa</estado>
+            <reservas/>
+        </actividad>
+
+    </actividades>
+
+</polideportivo>

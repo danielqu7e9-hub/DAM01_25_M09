@@ -1,0 +1,23 @@
+.pan {
+    display: flex;
+    flex-wrap: wrap;
+    width: 24rem;
+    height: auto;
+    gap: 1rem;
+}
+
+.pan p {
+    background: #088292;
+    margin: 0;
+}
+
+.pan p a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.pan p:hover {
+    background: #1eafc2;
+    cursor: pointer;
+}

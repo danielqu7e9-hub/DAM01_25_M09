@@ -1,198 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JavaScript · M04 / M09 · DAM01</title>
-
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DaniQ</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
-<body class="dark">
-  <div class="app-layout">
-    <aside class="sidebar">
-      <div class="logo-area">
-        <i class="fa-solid fa-code"></i>
-        <span>JS<strong>Dashboard</strong></span>
-      </div>
+<body>
 
-      <button class="btn-primary" onclick="location.href='editor.html'">
-        <i class="fa-solid fa-pen-to-square"></i>
-        Editor de archivos
-      </button>
-
-      <nav class="nav-links">
-        <div class="nav-group-title">MÓDULOS</div>
-        <div class="nav-item" onclick="document.getElementById('m04').scrollIntoView({behavior:'smooth'})">
-          <i class="fa-solid fa-folder"></i> M04
+    <nav class="top-nav">
+        <div class="user-profile">
+            <div class="avatar">DQ</div>
+            <span>Daniel Qu</span>
         </div>
-        <div class="nav-item" onclick="document.getElementById('m09').scrollIntoView({behavior:'smooth'})">
-          <i class="fa-solid fa-folder"></i> M09
-        </div>
-      </nav>
+        <div class="status-badge">Online</div>
+    </nav>
 
-      <div class="sidebar-bottom">
-        <a href="https://classroom.google.com" target="_blank" class="btn-classroom">
-          <i class="fa-solid fa-chalkboard-user"></i> Classroom
-        </a>
-      </div>
-    </aside>
+    <header>
+        <h1>Centro de Proyectos</h1>
+        <p class="subtitle">Gestiona tus módulos de M04 y M09 desde un solo lugar</p>
+    </header>
 
-    <main class="content">
-      <header class="top-header">
-        <div class="header-text">
-          <h1>JavaScript</h1>
-          <p>M04 y M09 de DAM01 en el ITB con Alicia Vázquez.</p>
-          <p class="small">Código realizado por <strong>Pepe Garcia</strong>.</p>
-        </div>
-
-        <div class="header-meta">
-          <div class="author-card">
-            <i class="fa-solid fa-user-gear"></i>
-            <div>
-              <span class="label">Programador</span>
-              <span class="value">Pepe Garcia</span>
+    <main>
+        <section class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-value">9</span>
+                <span class="stat-label">Ejercicios M04</span>
             </div>
-          </div>
-          <div class="author-card">
-            <i class="fa-regular fa-envelope"></i>
-            <div>
-              <span class="label">Contacto</span>
-              <span class="value">pepe.garcia@example.com</span>
+            <div class="stat-item">
+                <span class="stat-value">1</span>
+                <span class="stat-label">Módulo M09</span>
             </div>
-          </div>
-        </div>
-      </header>
+            <div class="stat-item">
+                <span class="stat-value">100%</span>
+                <span class="stat-label">Completado</span>
+            </div>
+        </section>
 
-      <section class="snippet-toolbar">
-        <h2>Gestor de snippets</h2>
-        <p class="snippet-info">
-          Selecciona un lenguaje y guarda pequeños fragmentos de código.
-        </p>
-        <div class="snippet-select-row">
-          <div class="select-wrapper">
-            <i class="fa-solid fa-code"></i>
-            <select id="language-select">
-              <option value="python">Python</option>
-              <option value="javascript">JavaScript</option>
-              <option value="java">Java</option>
-              <option value="c">C</option>
-              <option value="cpp">C++</option>
-              <option value="csharp">C#</option>
-              <option value="go">Go</option>
-              <option value="rust">Rust</option>
-              <option value="php">PHP</option>
-              <option value="kotlin">Kotlin</option>
-              <option value="swift">Swift</option>
-              <option value="typescript">TypeScript</option>
-              <option value="ruby">Ruby</option>
-              <option value="r">R</option>
-              <option value="scala">Scala</option>
-              <option value="dart">Dart</option>
-              <option value="matlab">MATLAB</option>
-              <option value="sql">SQL</option>
-              <option value="bash">Shell / Bash</option>
-              <option value="perl">Perl</option>
-            </select>
-          </div>
-          <button class="btn-outline" type="button" onclick="copySnippet()">
-            <i class="fa-regular fa-clipboard"></i>
-            Copiar snippet
-          </button>
-        </div>
-        <textarea id="snippet-editor"
-                  class="snippet-editor"
-                  rows="4"
-                  placeholder="Pega aquí tu código para este lenguaje..."></textarea>
-      </section>
+        <div class="container">
+            <div class="card m04">
+                <a href="m04.html" class="card-link">
+                    <div class="card-header">
+                        <span class="icon">📁</span>
+                        <h2>M04 - Marcas</h2>
+                    </div>
+                    <p>Acceso a las actividades del DOM (1 a 8) y gestión de archivos JSON. Enfocado en la manipulación dinámica de interfaces.</p>
+                </a>
+                <a href="https://classroom.google.com/u/4/c/NzAwNTA2NDc1NTI5" target="_blank" class="classroom-btn">
+                    Abrir Classroom M04
+                </a>
+            </div>
 
-      <!-- CARDS M04 -->
-      <section id="m04" class="card-section">
-        <h2 class="section-title">M04 · Programación</h2>
-        <div class="card-grid">
-          <article class="topic-card" onclick="location.href='temas/m04/tema1.html'">
-            <div class="card-image-wrapper">
-              <img src="assets/img/m04_tema1.jpg" alt="Introducción a JavaScript">
-              <span class="badge badge-m04">M04</span>
+            <div class="card m09">
+                <a href="m09.html" class="card-link">
+                    <div class="card-header">
+                        <span class="icon">⚙️</span>
+                        <h2>M09 - Interfaces</h2>
+                    </div>
+                    <p>Repositorio de lógica pura. Contiene la carpeta principal de JavaScript y el desarrollo de componentes interactivos.</p>
+                </a>
+                <a href="https://classroom.google.com/u/4/c/NzAwNTA2NDkwMzEz" target="_blank" class="classroom-btn">
+                    Abrir Classroom M09
+                </a>
             </div>
-            <div class="card-body">
-              <h3 class="card-title">Introducción a JavaScript</h3>
-              <p class="card-subtitle">Sintaxis básica, variables y tipos</p>
-              <p class="card-description">
-                Primeros pasos con JavaScript y ejecución en el navegador.
-              </p>
-              <ul class="card-links">
-                <li><a href="temas/m04/tema1.html#ejercicios"><i class="fa-solid fa-code"></i> Ejercicios</a></li>
-                <li><a href="temas/m04/tema1.html#ejemplos"><i class="fa-solid fa-flask"></i> Ejemplos</a></li>
-              </ul>
-            </div>
-            <footer class="card-footer">
-              <a href="https://tu-enlace-apuntes-m04" class="card-footer-link" target="_blank">
-                <i class="fa-solid fa-book"></i> Apuntes de clase
-              </a>
-              <a href="https://tu-git-m04" class="card-footer-link" target="_blank">
-                <i class="fa-brands fa-git-alt"></i> Repo Git
-              </a>
-            </footer>
-          </article>
         </div>
-      </section>
-
-      <!-- CARDS M09 -->
-      <section id="m09" class="card-section">
-        <h2 class="section-title">M09 · Desarrollo Web</h2>
-        <div class="card-grid">
-          <article class="topic-card" onclick="location.href='temas/m09/tema1.html'">
-            <div class="card-image-wrapper">
-              <img src="assets/img/m09_tema1.jpg" alt="DOM y eventos">
-              <span class="badge badge-m09">M09</span>
-            </div>
-            <div class="card-body">
-              <h3 class="card-title">DOM y eventos</h3>
-              <p class="card-subtitle">Interacción con la página</p>
-              <p class="card-description">
-                Manipulación del DOM, gestión de eventos y componentes dinámicos.
-              </p>
-              <ul class="card-links">
-                <li><a href="temas/m09/tema1.html#ejercicios"><i class="fa-solid fa-code-branch"></i> Ejercicios</a></li>
-                <li><a href="temas/m09/tema1.html#ejemplos"><i class="fa-solid fa-wand-magic-sparkles"></i> Ejemplos</a></li>
-              </ul>
-            </div>
-            <footer class="card-footer">
-              <a href="https://tu-enlace-apuntes-m09" class="card-footer-link" target="_blank">
-                <i class="fa-solid fa-book-open"></i> Apuntes de clase
-              </a>
-              <a href="https://tu-git-m09" class="card-footer-link" target="_blank">
-                <i class="fa-brands fa-github"></i> Repo Git
-              </a>
-            </footer>
-          </article>
-        </div>
-      </section>
-
-      <footer class="site-footer">
-        <div class="footer-left">
-          <span>Contacto: <strong>pepe.garcia@example.com</strong></span>
-          <span>·</span>
-          <span>Programador: Pepe Garcia</span>
-        </div>
-        <div class="footer-right">
-          <span>
-            <i class="fa-regular fa-copyright"></i>
-            CC BY-NC-SA · Se respetan los derechos de autor de los materiales externos.
-          </span>
-        </div>
-      </footer>
     </main>
-  </div>
 
-  <script>
-    function copySnippet() {
-      const textarea = document.getElementById('snippet-editor');
-      textarea.select();
-      document.execCommand('copy');
-    }
-  </script>
+    <footer>
+        <p>&copy; 2026 Dashboard de Daniel Qu | Para los modulos de Alicia </p>
+    </footer>
+
 </body>
 </html>

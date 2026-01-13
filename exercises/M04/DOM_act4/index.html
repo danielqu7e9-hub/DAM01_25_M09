@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ca">
+    <head>
+        <meta charset="UTF-8">
+        <title>Append</title>
+    </head>
+    <body>
+        <div id="contenedor"></div>
+        <script>
+            let contenedor = document.getElementById("contenedor");
+            
+            let parraf = document.createElement("p");
+            parraf.textContent = "Este es un párrafo añadido";
+
+            contenedor.appendChild(parraf);
+        </script>
+    </body>
+</html>

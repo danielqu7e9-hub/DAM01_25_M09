@@ -1,0 +1,55 @@
+/* Ordre del teclat */
+.pan {
+    display: flex;
+    flex-wrap: wrap;
+    width: 24rem;
+    height: auto;
+    gap: 1rem;
+}
+
+/* Tamany i estil de les tecles */
+.pan p {
+    padding: 2.5rem;
+    margin: 0;
+    flex: 0 0 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estils dels anchor */
+.pan p a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+}
+
+/* Estils dels impars */
+.impar {
+    background: #088292;
+}
+
+.impar:hover {
+    background: #1eafc2;
+    cursor: pointer;
+}
+
+/* Estils dels multiples de 3 */
+.multipleDe3 {
+    background: #e7f254;
+}
+
+.multipleDe3:hover {
+    background: #f9ff70;
+    cursor: pointer;
+}
+
+/* Estils dels parells */
+.parell {
+    background: #3e1cff;
+}
+
+.parell:hover {
+    background: #6c4bff;
+    cursor: pointer;
+}

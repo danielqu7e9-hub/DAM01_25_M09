@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.teclado {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+}
+
+/* Teclat lletres */
+
+.tecladoLetras {
+    width: 55%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+}
+
+.tecladoLetras p {
+    padding: 2.5rem;
+    flex: 0 0 1rem;
+}
+
+/* Colors teclat lletres */
+
+.vocales {
+    background-color: #189743;
+}
+
+.noVocal {
+    background-color: #ff822e;
+}
+
+/* Teclat numeros */
+
+.tecladoNumeros {
+    width: 30%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    align-content: flex-start;
+}
+
+.tecladoNumeros p {
+    padding: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estils dels impars */
+.impar {
+    background: #088292;
+}
+
+.impar:hover {
+    background: #1eafc2;
+    cursor: pointer;
+}
+
+/* Estils dels multiples de 3 */
+.multipleDe3 {
+    background: #e7f254;
+}
+
+.multipleDe3:hover {
+    background: #f9ff70;
+    cursor: pointer;
+}
+
+/* Estils dels parells */
+.parell {
+    background: #3e1cff;
+}
+
+.parell:hover {
+    background: #6c4bff;
+    cursor: pointer;
+}

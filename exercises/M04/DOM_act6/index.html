@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ca">
+    <head>
+        <meta charset="UTF-8">
+        <title>Teclado numérico</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+
+        <script>
+            let body = document.body;
+
+            let tecladoNumero = document.createElement("div");
+            tecladoNumero.className = "pan";
+
+            body.appendChild(tecladoNumero);
+
+            crearTecles(tecladoNumero);
+
+            function crearTecles(contenedor) {
+                for (let i = 1; i <= 20; i++) {
+                    let boto = document.createElement("p");
+                    if (i%2 == 0) {
+                        boto.className = "parell";
+                    } else if (i%3 == 0) {
+                        boto.className = "multipleDe3";
+                    } else {
+                        boto.className = "impar";
+                    }
+                    boto.innerHTML = `<a href="">${i}</a>`;
+                    contenedor.appendChild(boto);
+                }
+            }
+        </script>
+    </body>
+</html>

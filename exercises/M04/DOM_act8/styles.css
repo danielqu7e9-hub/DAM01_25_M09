@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+}
+
+.damas {
+    display: flex;
+    flex-wrap: wrap;
+    width: 24rem;
+    height: 24rem;
+    margin: 1rem;
+    border: 1px solid black;
+}
+
+.par {
+    width: 1rem;
+    height: 1rem;
+    padding: 1rem;
+    background-color: black;
+    color: aliceblue;
+    font-weight: bolder;
+}
+
+.impar {
+    width: 1rem;
+    height: 1rem;
+    padding: 1rem;
+    background-color: aliceblue;
+    color: black;
+    font-weight: bolder;
+}

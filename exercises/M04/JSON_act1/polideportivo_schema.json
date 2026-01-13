@@ -1,0 +1,70 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Polideportivo",
+    "description": "Validador del polideportivo",
+    "type": "object",
+
+    "properties": {
+        "socios": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "num_socio": { "type": "string" },
+                    "nombre": { "type": "string" },
+                    "edad": { "type": "integer" },
+                    "correo": { "type": "string", "format": "email" },
+                    "tipo": { "type": "string" }
+                },
+                "required": ["num_socio", "nombre", "edad", "correo", "tipo"]
+            }
+        },
+        "entrenadores": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "num_entrenador": { "type": "string" },
+                    "nombre": { "type": "string" },
+                    "precioHora": { "type": "string" },
+                    "especialidades": {
+                        "type": "array",
+                        "items": { "type": "string" }
+                    }
+                },
+                "required": ["num_entrenador", "nombre", "precioHora", "especialidades"]
+            }
+        },
+        "actividades": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "codigo_actividad": { "type": "string" },
+                    "nombre": { "type": "string" },
+                    "codigo_entrenador": { "type": "string" },
+                    "aula": { "type": "string" },
+                    "horario": { "type": "string" },
+                    "estado": { "type": "string" },
+                    "reservas": {
+                        "type": "array",
+                        "items": { "type": "string" }
+                    }
+                },
+                "required": ["codigo_actividad", "nombre", "codigo_entrenador", "aula", "horario", "estado", "reservas"]
+            }
+        },
+        "datos polideportivo": {
+            "type": "object",
+            "properties": {
+                "nombre": { "type": "string" },
+                "codigo": { "type": "string" },
+                "direccion": { "type": "string" },
+                "aforo_max": { "type": "string" },
+                "ciudad": { "type": "string" }
+            },
+            "required": ["nombre", "codigo", "direccion", "aforo_max", "ciudad"]
+        }
+    },
+    "required": ["socios"]
+}

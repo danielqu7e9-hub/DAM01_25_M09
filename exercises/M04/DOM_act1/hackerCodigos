@@ -1,0 +1,14 @@
+Fase 1: Reconocimiento (Usando la Consola del Navegador) Antes de escribir el fichero .js, probad esto en la consola de Chrome/Firefox (F12):
+Investiga al autor: Selecciona el nodo con el id autor e imprime por consola quién escribió la noticia original.
+
+console.log(document.getElementById("autor").textContent);
+
+Captura el titular: Guarda el elemento h1 en una variable llamada titular y muestra por consola su texto actual.
+
+let titular = document.getElementById("titular");
+console.log(titular.textContent);
+
+Espía el input: Selecciona el input de comentarios y muestra por consola qué texto tiene escrito por defecto.
+
+let codigo = document.getElementById("input-comentario");
+console.log(codigo.value);

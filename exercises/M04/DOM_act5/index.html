@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ca">
+    <head>
+        <meta charset="UTF-8">
+        <title>Teclado numérico</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+
+        <script>
+            let body = document.body;
+
+            let tecladoNumero = document.createElement("div");
+            tecladoNumero.className = "pan";
+
+            body.appendChild(tecladoNumero);
+
+            crearTecles();
+
+            function crearTecles() {
+                for (let i = 1; i <= 9; i++) {
+                    let boto = document.createElement("p");
+                    boto.innerHTML = `<a href="">${i}</a>`;
+                    tecladoNumero.appendChild(boto);
+                }
+            }
+        </script>
+    </body>
+</html>
