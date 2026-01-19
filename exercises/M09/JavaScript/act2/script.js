@@ -13,5 +13,5 @@ function encontrarNumeros() {
     else if (numAleatorio > num) resultado.textContent = "El nombre és més gran";
     else resultado.textContent = "El nombre és més petit";
     }
-
+    document.getElementById("num").value = null;
 }
