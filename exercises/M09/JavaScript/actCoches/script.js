@@ -32,7 +32,7 @@ const matriuProcesat = matriuVehicles.filter(vehicle =>
     vehicle[0] !== "Alfa Romeo" &&
     vehicle[0] !== "Kia" &&
     (ANYACTUAL - vehicle[2]) > 20
-).sort().map(vehicle => {
+).sort((a, b) => a[3] - b[3]).map(vehicle => {
     return [
         vehicle[0],
         vehicle[1],
