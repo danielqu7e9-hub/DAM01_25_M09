@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 - Tipo Numbers</title>
+    <script src="script.js" defer></script>
+    <style>
+        /* Estilo general de la caja del ejercicio */
+        .ejercicio {
+            border: 1px black solid;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Fondo para el resultado */
+        .resultado {
+            background-color: rgb(195, 192, 192);
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            /* Para scroll horizontal si hay muchas columnas */
+        }
+
+        /* Estilo tipo tabla */
+        .tabla-simples {
+            display: table;
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .tabla-simples .fila {
+            display: table-row;
+        }
+
+        .tabla-simples .celda {
+            display: table-cell;
+            border: 1px solid #000;
+            padding: 5px 10px;
+            text-align: left;
+        }
+
+        /* Encabezado */
+        .tabla-simples .header {
+            font-weight: bold;
+            background-color: #a9a9a9;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="titulo">Ejercicios Array</h1>
+    <div class="ejercicio">
+        <h3>Ejercicio 1</h3>
+        <p>Devuelve los vehículos de la marca que no sean ni 'Alfa Romeo' ni 'Kia' que tengan más de 20 años.
+        </p>
+        <div class="resultado">
+            <p class="a1"></p>
+        </div>
+    </div>
+</body>
+
+</html>
