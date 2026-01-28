@@ -1,0 +1,25 @@
+* {
+    user-select: none;
+}
+
+body {
+    background: linear-gradient(180deg, #150025, #14003a);
+    padding: 1px;
+    cursor: none;
+}
+
+#caixa {
+    height: 100%;
+    width: auto;
+}
+
+#caixaSpaceship {
+    position: relative;
+    top: 85%;
+}
+
+#contenedorMoviment {
+    position: relative;
+    height: 150px;
+    width: 150px;
+}
