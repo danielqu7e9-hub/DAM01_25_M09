@@ -3,7 +3,7 @@
 }
 
 body {
-    background: linear-gradient(180deg, #150025, #14003a);
+    animation: body 5s infinite alternate; 
     padding: 1px;
     cursor: none;
 }
@@ -24,4 +24,9 @@ body {
     position: relative;
     height: 150px;
     width: 150px;
+}
+
+@keyframes body {
+  from {background-color: #150025;}
+  to {background-color: #14003a;}
 }

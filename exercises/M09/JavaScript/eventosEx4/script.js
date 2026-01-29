@@ -10,36 +10,36 @@ caixa.addEventListener("mousemove", (event) => {
 });
 
 document.addEventListener("keydown", (event) => {
-    if (event.key == "Enter") {
+    if (event.key == "Enter" || event.code == "Space") {
         let avionX = contenedorMoviment.offsetLeft + contenedorMoviment.clientWidth / 2 + 11;
-        disparar(avionX - 5);
+        disparar(avionX - 6);
     }
 });
 
 document.addEventListener("click", (event) => {
         let avionX = contenedorMoviment.offsetLeft + contenedorMoviment.clientWidth / 2 + 11;
-        disparar(avionX - 5);
+        disparar(avionX - 6);
 });
 
 function disparar(clientCoordsX) {
     let bala = document.createElement("div");
     bala.style.position = "absolute";
     bala.style.top = 690;
-    bala.style.width = 10;
-    bala.style.height = 25;
-    bala.style.backgroundColor = "red";
+    bala.style.width = 8;
+    bala.style.height = 20;
+    bala.style.background = "linear-gradient(rgba(255,0,0,1), rgba(255,0,0,1), rgba(255, 0, 0, 0.47))";
     bala.style.left = clientCoordsX;
 
     caixa.appendChild(bala);
 
     const idInterval = setInterval(() => {
         let topActual = parseInt(bala.style.top);
-        if (topActual <= -25) {
+        if (topActual <= -parseInt(bala.style.height)) {
             bala.remove();
             clearInterval(idInterval);
         } else {
             bala.style.top = topActual - 4;
         }
-    }, 1
+    }, 0.1
 );
 }
