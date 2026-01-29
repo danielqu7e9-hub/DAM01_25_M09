@@ -24,7 +24,7 @@ document.addEventListener("click", (event) => {
 function disparar(clientCoordsX) {
     let bala = document.createElement("div");
     bala.style.position = "absolute";
-    bala.style.top = 1050;
+    bala.style.top = 690;
     bala.style.width = 10;
     bala.style.height = 25;
     bala.style.backgroundColor = "red";
@@ -38,7 +38,7 @@ function disparar(clientCoordsX) {
             bala.remove();
             clearInterval(idInterval);
         } else {
-            bala.style.top = topActual - 3;
+            bala.style.top = topActual - 4;
         }
     }, 1
 );

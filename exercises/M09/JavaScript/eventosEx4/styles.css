@@ -15,7 +15,9 @@ body {
 
 #caixaSpaceship {
     position: relative;
-    top: 85%;
+    height: auto;
+    width: auto;
+    top: 80%;
 }
 
 #contenedorMoviment {
