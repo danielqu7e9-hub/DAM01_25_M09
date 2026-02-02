@@ -153,7 +153,7 @@ taula.appendChild(thead);
 taula.appendChild(tbody);
 
 const objectArray = JSON.parse(alumnosJSON);
-const llistaAttributsValids = ["nombre", "apellidos", "dni"]
+const llistaAttributsValids = Object.keys(objectArray[0]);
 
 let header = ""
 
@@ -165,40 +165,30 @@ for (let attribName in objectArray[0]) {
   }
 }
 
+header += "<th>media</th>";
+
 header += "</tr>";
+
+const llistaAttributsNotes = ["notam2", "notam3", "notam4", "notam5", "notam6", "notam9"]
+let quantitatMedia = llistaAttributsNotes.length;
 
 thead.innerHTML += header;
 
 objectArray.forEach(persona => {
   let fila = "<tr>";
 
+  let media = 0;
+
   for (let attrib of llistaAttributsValids) {
     fila += `<td>${persona[attrib]}</td>`;
+    if (llistaAttributsNotes.includes(attrib)) media += persona[attrib];
   }
+
+  fila += `<td>${(media / quantitatMedia).toFixed(2)}</td>`;
 
   fila += "</tr>";
 
   tbody.innerHTML += fila;
 });
 
-
 body.appendChild(taula);
-
-/*
-taula.innerHTML += `
-<tr>
-    <td>Nom</td>
-    <td>Cognom</td>
-    <td>DNI</td>
-</tr>
-`
-
-const objectArray = JSON.parse(alumnosJSON);
-objectArray.forEach (object => {
-    taula.innerHTML += `<tr>
-                            <td>${object.nombre}</td>
-                            <td>${object.apellidos}</td>
-                            <td>${object.dni}</td>
-                        </tr>`
-});
-*/
