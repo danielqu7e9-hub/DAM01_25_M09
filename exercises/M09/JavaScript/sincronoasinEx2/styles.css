@@ -1,0 +1,18 @@
+body {
+    background-color: #e47245;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4vh;
+}
+
+.pokemonArticle {
+    position: relative;
+    top: 2rem;
+    background-color: #f33d3d;
+    border: solid 5px rgb(77, 3, 3);
+    border-radius: 3rem;
+    padding: 2rem;
+}
