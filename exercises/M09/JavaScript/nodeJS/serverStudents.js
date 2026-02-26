@@ -34,12 +34,14 @@ const server = createServer((req, res) => {
     let code = req.url.split("/").at(-1);
 
     // 2. Buscar alumno en el array
-    // 3. Si no existe → 404
-    // 4. Si existe → devolver 200 + alumno
     const position = students.findIndex(estudiant => estudiant.id == code);
+
+    // 3. Si no existe → 404
     if (position === -1) {
       return sendJson(res, 404, { message: "Not Found" });
     }
+
+    // 4. Si existe → devolver 200 + alumno
     return sendJson(res, 200, students[position]);
   }
 
@@ -51,17 +53,17 @@ const server = createServer((req, res) => {
 
     // 2. Comprobar si existe
     const position = students.findIndex(estudiant => estudiant.id == code);
+    
+    // 4. Si no existe → 404
     if (position === -1) {
       return sendJson(res, 404, { message: "Not Found" });
     }
 
     // 3. Eliminarlo del array
-
     students.splice(position, 1);
 
-    // 4. Si no existe → 404
+    
     // 5. Si se elimina → 204 (sin body)
-
     return sendJson(res, 204, { message: "" })
 
   }
@@ -69,72 +71,90 @@ const server = createServer((req, res) => {
   if (req.method === "POST" && req.url === "/students") {
 
     // 1. Leer el body con readBody() --> Es donde esta toda la info del nuevo alumno.
-    return readBody(req, (error, alumneNou) => {
+    return (async () => {
+      try {
+        const alumneNou = await readBody(req);
 
-      // 2. Validar que tenga id, nombre y curso
-      if (!alumnoNou.id || !alumneNou.nombre || !alumneNou.curso) {
-        return sendJson(res, 400, { message: "Falten camps" });
+        // 2. Validar que tenga id, nombre y curso
+        if (!alumneNou.id || !alumneNou.nombre || !alumneNou.curso) {
+          return sendJson(res, 400, { message: "Falten camps" });
+        }
+
+        // 3. Comprobar que el id no esté repetido
+        if (students.some(estudiant => estudiant.id === alumneNou.id)) {
+          return sendJson(res, 409, { message: "ID ja existent" });
+        }
+
+        // 4. Añadir al array students
+        students.push(alumneNou);
+
+        // 5. Devolver 201 + alumno creado
+        return sendJson(res, 201, alumneNou);
+
+      } catch (err) {
+        return sendJson(res, 400, { message: "Json no valid" });
       }
-
-      // 3. Comprobar que el id no esté repetido
-      // 4. Añadir al array students
-      if (students.some( estudiant => estudiant.id === alumneNou.id)) {
-        return sendJson(res, 409, { message: "ID ja existent" });
-      }
-
-      students.push(alumneNou);
-
-      // 5. Devolver 201 + alumno creado
-      return sendJson(res, 201, alumneNou);
-
-    });
-
-
-
-
-
+    })();
   }
 
   // TODO 4: PUT /students/:id
   if (req.method === "PUT" && req.url.startsWith("/students/")) {
 
-    // 1. Extraer id
-    // 2. Buscar alumno
-    // 3. Si no existe → 404
-    // 4. Leer body con readBody() --> Ahora será otra callback!!!
-    // 5. Actualizar campos enviados
-    // 6. Devolver 200 + alumno actualizado
+    return (async () => {
+      try {
+
+        // 1. Extraer id
+        let code = req.url.split("/").at(-1);
+
+        // 2. Buscar alumno
+        const position = students.findIndex(estudiant => estudiant.id == code);
+
+        // 3. Si no existe → 404
+        if (position === -1) {
+          return sendJson(res, 404, { message: "Not Found" });
+        }
+
+        // 4. Leer body con readBody() --> Ahora será otra callback!!!
+        const canviis = await readBody(req);
+        
+        // 5. Actualizar campos enviados
+        if (canviis.nombre) {
+          students[position].nombre = canviis.nombre;
+        }
+
+        if (canviis.curso) {
+          students[position].curso = canviis.curso;
+        }
+
+        // 6. Devolver 200 + alumno actualizado
+        return sendJson(res, 200, { message: "alumno actualizado" });
+
+      } catch (err) {
+        return sendJson(res, 400, { message: "Json no valid" });
+      }
+    })();
 
   }
 
-
-
   // Si no coincide ningún endpoint
   sendJson(res, 404, { message: "Not Found" });
-
 });
-
 
 /* TODO: Crear función que lea el body y devuelva el JSON parseado
 En Node puro, el body no viene empaquetado.
 Llega en trozos.
 Tenemos que montarlo nosotros.*/
-function readBody(req, callback) {
-  let body = "";
-
-  req.on("data", chunk => {
-    //Vamos obteniendo los trozos
-    body += chunk;
-  });
-
-  req.on("end", () => {
-    try {
-      const alumnoNew = JSON.parse(body);
-      //Aquí ya tenemos al alumno.
-      callback(null, alumnoNew);
-    } catch (err) {
-      callback(err);
-    }
+function readBody(req) {
+  return new Promise((resolve, reject) => {
+    let body = "";
+    req.on("data", chunk => body += chunk);
+    req.on("end", () => {
+      try {
+        resolve(JSON.parse(body));
+      } catch (err) {
+        reject(err);
+      }
+    });
   });
 }
 
