@@ -2,14 +2,14 @@
   "name": "proyectonpm1",
   "version": "1.0.0",
   "description": "",
-  "main": "index.mjs",
+  "main": "server.js",
   "scripts": {
-    "dev": "nodemon index.mjs"
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "daniq",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
     "express": "^5.2.1"
   },
