@@ -1,12 +1,12 @@
 import { nextId, notas } from '../data/notas.data.js';
-import { students } from '../data/students.data.js';
+import { getById as sgetById } from '../services/students.services.js'
 
 export function getAll() {
-    return notes;
+    return notas;
 }
 
 export function getById(id) {
-    return notes.filter( nota => nota.studentId === id );
+    return notas.filter( nota => nota.studentId === id );
 }
 
 export function create(notaNova) {
@@ -14,7 +14,7 @@ export function create(notaNova) {
 
     if (!notaNova.studentId || !notaNova.modulo || !notaNova.nota) return { error: "Falten camps obligatoris", status: 400 };
 
-    if (!students.some(s => s.id === notaNova.studentId)) return { error: "ID Estudiant no existeix", status: 409 };
+    if (!sgetById(notaNova.studentId)) return { error: "ID Estudiant no existeix", status: 409 };
 
     notas.push({ id: nextId.valor, studentId: notaNova.studentId, modulo: notaNova.modulo, nota: notaNova.nota });
     nextId.valor++;
@@ -23,25 +23,25 @@ export function create(notaNova) {
 }
 
 export function update(id, notesUpdated) {
-    const idx = notes.findIndex(n => n.id === id);
+    const idx = notas.findIndex(n => n.id === id);
 
     if (idx === -1) return null;
 
     if (notesUpdated && typeof notesUpdated === "object") {
         if (notesUpdated !== undefined) {
-            notes[idx].nota = notesUpdated.nota;
+            notas[idx].nota = notesUpdated.nota;
         }
     }
 
-    return notes[idx];
+    return notas[idx];
 }
 
 export function remove(idNota) {
-    const idx = notes.findIndex(n => n.id === idNota);
+    const idx = notas.findIndex(n => n.id === idNota);
 
     if (idx === -1) return null;
 
-    students.splice(idx, 1);
+    notas.splice(idx, 1);
 
     return true
 }

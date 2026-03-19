@@ -1,4 +1,4 @@
-import * as notasService from '../services/notas.services.js'
+import * as notasService from '../services/notes.services.js'
 
 // GET /notas
 export function getAll(req, res) {
@@ -9,7 +9,7 @@ export function getAll(req, res) {
 export function getById(req, res) {
     const notesAlumne = notasService.getById(req.params.id);
 
-    if (!notesAlumne) return res.status(404).json({ message: "Not Found" });
+    if (!notesAlumne || notesAlumne.length === 0) return res.status(404).json({ message: "Not Found" });
     
     res.json(notesAlumne);
 }
@@ -28,7 +28,7 @@ export function create(req, res) {
 
 // PUT /notas/:id
 export function update(req, res) {
-    const notaUpdate = notasService.update(req.params.id, req.body);
+    const notaUpdate = notasService.update(Number(req.params.id), req.body);
 
     if (!notaUpdate) return res.status(404).json({ message: "Not Found" });
     res.json(notaUpdate);
@@ -36,7 +36,7 @@ export function update(req, res) {
 
 // DELETE /notas/:id
 export function remove(req, res) {
-    const notaRemove = notasService.remove(req.params.id);
+    const notaRemove = notasService.remove(Number(req.params.id));
 
     if (!notaRemove) return res.status(404).json({ message: "Not Found" });
     res.sendStatus(204);
