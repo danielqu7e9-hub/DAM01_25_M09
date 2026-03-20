@@ -1,10 +1,13 @@
 import express from "express";
 import camisetesRouter from './routes/camisetes.routes.js';
-import comandasRouter from './routes/comandas.routes.js'
+import comandesRouter from './routes/comandes.routes.js';
+import cors from 'cors';
 
 const app = express();
 
 const PORT = 4000;
+
+app.use(cors());
 
 app.use(express.json());
 
@@ -13,8 +16,8 @@ app.use((req, res, next) => {
  next();
 });
 
-app.use('/api/camisetas', camisetesRouter);
-app.use('/api/comandas', comandasRouter);
+app.use('/api/camisetes', camisetesRouter);
+app.use('/api/comandes', comandesRouter);
 
 app.use((err, req, res, next) => {
  console.error(err.message);
@@ -24,3 +27,5 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
+
+export default app;
