@@ -1,33 +1,412 @@
+/* ── Reset & Base ─────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #f4f1ee;
+  color: #1a1a1a;
+  min-height: 100vh;
+}
+
+/* ── Header ───────────────────────────────────────────── */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 2.5rem;
+  background: #1a1a1a;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+header nav button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+/* ── Toolbar ──────────────────────────────────────────── */
+#toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.2rem 2.5rem 0;
+}
+
+#search-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex: 1;
+  max-width: 420px;
+  background: #fff;
+  border: 1.5px solid #e0ddd9;
+  border-radius: 8px;
+  padding: 0.55rem 0.9rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#search-wrapper:focus-within {
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 3px rgba(26,26,26,0.08);
+}
+
+#search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.875rem;
+  background: transparent;
+  color: #1a1a1a;
+  font-family: inherit;
+}
+
+#search-input::placeholder {
+  color: #aaa;
+}
+
+#toggle-filters {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.1rem;
+  background: #fff;
+  border: 1.5px solid #e0ddd9;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: #1a1a1a;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+#toggle-filters:hover,
+#toggle-filters[aria-expanded="true"] {
+  background: #1a1a1a;
+  border-color: #1a1a1a;
+  color: #fff;
+}
+
+#toggle-filters[aria-expanded="true"] svg {
+  stroke: #fff;
+}
+
+/* ── Filter panel ─────────────────────────────────────── */
+#filter-panel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.1rem 2.5rem;
+  background: #fff;
+  border-top: 1px solid #ece9e5;
+  border-bottom: 1px solid #ece9e5;
+  margin-top: 0.75rem;
+  transition: opacity 0.2s;
+}
+
+#filter-panel.hidden {
+  display: none;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #888;
+}
+
+.filter-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  padding: 0.5rem 2.2rem 0.5rem 0.85rem;
+  font-size: 0.85rem;
+  font-family: inherit;
+  font-weight: 500;
+  color: #1a1a1a;
+  cursor: pointer;
+  min-width: 160px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.filter-group select:focus {
+  outline: none;
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 3px rgba(26,26,26,0.08);
+}
+
+.filter-group select:hover {
+  border-color: #aaa;
+}
+
+#clear-filters {
+  align-self: flex-end;
+  margin-left: auto;
+  padding: 0.35rem 0.9rem;
+  border: 1.5px solid #ddd;
+  border-radius: 6px;
+  background: transparent;
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+#clear-filters:hover {
+  color: #e74c3c;
+  border-color: #e74c3c;
+}
+
+/* ── Section title ────────────────────────────────────── */
+main > h2 {
+  width: 100%;
+  padding: 2rem 2.5rem 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #888;
+}
+
+/* ── Product grid ─────────────────────────────────────── */
 main {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  padding: 2rem;
+  gap: 2rem;
+  padding: 1.5rem 2.5rem 3rem;
 }
 
+/* ── Product card ─────────────────────────────────────── */
 article {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0;
-  width: 280px;
+  align-items: stretch;
+  width: 270px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  position: relative;
 }
 
 article img {
   width: 100%;
-  height: 250px;
+  height: 260px;
   object-fit: cover;
+  display: block;
 }
 
+/* ── Tag badge ────────────────────────────────────────── */
+#tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #1a1a1a;
+  color: #fff;
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#tag p {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+  text-align: center;
+}
+
+/* ── Card content ─────────────────────────────────────── */
+article h2 {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+article p {
+  font-size: 0.8rem;
+  color: #666;
+  text-align: center;
+  padding: 0.4rem 1.2rem 0;
+  line-height: 1.5;
+}
+
+.precio {
+  font-size: 1.1rem !important;
+  font-weight: 700;
+  color: #1a1a1a !important;
+  padding-top: 0.6rem !important;
+}
+
+/* ── Size buttons ─────────────────────────────────────── */
 #seleccionarTalles {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.4rem;
+  justify-content: center;
+  padding: 0.8rem 1rem 0;
+}
+
+#seleccionarTalles button {
+  border: 1.5px solid #ccc;
+  background: #fff;
+  color: #1a1a1a;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.3rem 0.55rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+#seleccionarTalles button:hover,
+#seleccionarTalles button.selected {
+  border-color: #1a1a1a;
+  background: #1a1a1a;
+  color: #fff;
+}
+
+/* ── Color buttons ────────────────────────────────────── */
+#seleccionarColors {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  padding: 0.7rem 1rem 0;
+}
+
+#seleccionarColors button {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  outline-offset: 2px;
+  transition: outline 0.15s;
+  font-size: 0;
+  text-indent: -9999px;
+}
+
+#seleccionarColors button:hover {
+  outline: 2px solid #6b6b6b;
+}
+
+#seleccionarColors button.selected {
+  outline: 2px solid #1a1a1a;
+}
+
+/* Color swatches */
+#seleccionarColors button[id="colors"]:nth-child(1) { background: #f5f5f0; border-color: #ccc; }
+
+/* ── Quantity ─────────────────────────────────────────── */
+#quantitat {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+  padding: 0.8rem 0 0;
+}
+
+#qMenos, #qMes {
+  width: 36px;
+  height: 25px;
+  border: 1.5px solid #ccc;
+  background: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
 
-#seleccionarColors {
-  display: flex;
-  gap: 0.5rem;
-  justify-content: center;
+#qMenos {
+  border-radius: 0px;
+}
+
+#qMes {
+  border-radius: 0px;
+}
+
+#qMenos:hover, #qMes:hover {
+  border-color: #1a1a1a;
+  background: #1a1a1a;
+  color: #fff;
+}
+
+#qInput {
+  flex: 1;
+  width: auto;
+  text-align: center;
+  border: 1.5px solid #ccc;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  font-size: 0.85rem;
+  padding: 0.25rem;
+  -moz-appearance: textfield;
+}
+
+#qInput::-webkit-outer-spin-button,
+#qInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* ── Add to cart button ───────────────────────────────── */
+#agregarCistella {
+  margin-top: 0;
+  padding: 0.65rem;
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 0px 0px 10px 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#agregarCistella:hover {
+  background: #333;
 }

@@ -2,7 +2,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Minibotiga: 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeeLab Shop</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="productos.js" defer></script>
 </head>
@@ -11,12 +12,68 @@
     <header>
         <h1>TeeLab Shop</h1>
         <nav>
-            <button>🛒</button>
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                </svg>
+            </button>
         </nav>
     </header>
+    <!-- ── Toolbar ───────────────────────────────────────── -->
+    <div id="toolbar">
+        <div id="search-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input id="search-input" type="text" placeholder="Buscar producte...">
+        </div>
+        <button id="toggle-filters" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/>
+            </svg>
+            Filtres
+        </button>
+    </div>
+
+    <!-- ── Filter panel ───────────────────────────────────── -->
+    <div id="filter-panel" class="hidden">
+        <div class="filter-group">
+            <label class="filter-label" for="filter-talla">Talla</label>
+            <select id="filter-talla">
+                <option value="">Totes les talles</option>
+                <option value="XS">XS</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="XXL">XXL</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label class="filter-label" for="filter-color">Color</label>
+            <select id="filter-color">
+                <option value="">Tots els colors</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label class="filter-label" for="filter-sort">Ordenar per</label>
+            <select id="filter-sort">
+                <option value="">Sense ordre</option>
+                <option value="preu-asc">Preu ↑</option>
+                <option value="preu-desc">Preu ↓</option>
+                <option value="nom-asc">Nom A–Z</option>
+                <option value="nom-desc">Nom Z–A</option>
+            </select>
+        </div>
+
+        <button id="clear-filters">Esborrar filtres</button>
+    </div>
+    
     <main>
-        <h2>Productes:</h2>
         
+
     </main>
 </body>
 

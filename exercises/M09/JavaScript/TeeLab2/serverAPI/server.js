@@ -1,6 +1,6 @@
 import express from "express";
-import camisetesRouter from '../routes/camisetes.routes.js';
-import comandesRouter from '../routes/comandes.routes.js';
+import camisetesRouter from './routes/camisetes.routes.js';
+import comandesRouter from './routes/comandes.routes.js';
 import cors from 'cors';
 
 const app = express();

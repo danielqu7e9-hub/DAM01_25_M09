@@ -1,4 +1,4 @@
-import { camisetes } from '../../data/camisetes.data.js';
+import { camisetes } from '../data/camisetes.data.js';
 
 export function getAll() {
     return camisetes;
@@ -25,7 +25,8 @@ export function filtrarTag(camisetes, query) {
 
 export function filtrarQ(camisetes, query) {
     if (query.q == undefined) return camisetes;
-    return camisetes.filter(c => c.nombre.includes(query.q) || c.descripcion.includes(query.q));
+    const q = query.q.toLowerCase();
+    return camisetes.filter(c => c.nombre.toLowerCase().includes(q) || c.descripcion.toLowerCase().includes(q));
 }
 
 export function aplicarSort(camisetes, query) {
