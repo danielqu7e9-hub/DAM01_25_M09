@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeeLab Shop – Cistella</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="cartProces.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>TeeLab Shop</h1>
+        <nav>
+            <button onclick="window.location.href='index.html'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"/>
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <main id="cart-main">
+        <!-- ── Left: product list ── -->
+        <section id="cart-list-section">
+            <div id="cart-list-header">
+                <h2 class="cart-section-title">Productes</h2>
+                <button id="btn-vaciar">Buidar cistella</button>
+            </div>
+
+            <div id="cart-items-wrapper">
+                <table id="cart-table">
+                    <thead>
+                        <tr>
+                            <th>Producte</th>
+                            <th>Talla</th>
+                            <th>Color</th>
+                            <th>Quantitat</th>
+                            <th>Preu</th>
+                            <th>Subtotal</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-tbody">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ── Right: order form + total ── -->
+        <aside id="cart-aside">
+            <h2 class="cart-section-title">Dades de la comanda</h2>
+
+            <form id="order-form" novalidate>
+                <div class="form-group">
+                    <label for="client-nom">Nom complet</label>
+                    <input type="text" id="client-nom" placeholder="Joan Garcia" required>
+                </div>
+                <div class="form-group">
+                    <label for="client-email">Email</label>
+                    <input type="email" id="client-email" placeholder="joan@exemple.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="client-adreca">Adreça d'enviament</label>
+                    <input type="text" id="client-adreca" placeholder="Carrer, número, pis..." required>
+                </div>
+                <div class="form-group">
+                    <label for="client-ciutat">Població</label>
+                    <input type="text" id="client-ciutat" placeholder="Barcelona" required>
+                </div>
+                <div class="form-group">
+                    <label for="client-cp">Codi postal</label>
+                    <input type="text" id="client-cp" placeholder="08001" required>
+                </div>
+            </form>
+
+            <div id="cart-total-box">
+                <span>Total a pagar</span>
+                <span id="cart-total-value">0,00 €</span>
+            </div>
+
+            <button id="btn-comprar" disabled>Comprar</button>
+            <p id="order-feedback"></p>
+        </aside>
+    </main>
+</body>
+
+</html>
