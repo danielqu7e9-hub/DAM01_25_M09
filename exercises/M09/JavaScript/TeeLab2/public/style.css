@@ -712,6 +712,44 @@ article p {
 .feedback-error { color: #e74c3c; }
 .feedback-ok    { color: #27ae60; font-weight: 600; }
 
+/* Notificació */
+
+#toast-container {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.toast {
+  padding: 0.8rem 1.2rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  border-left: 4px solid;
+  font-size: 0.82rem;
+  animation: toastIn 0.4s ease;
+}
+
+.toast.toast-exit {
+  animation: toastOut 0.3s ease forwards;
+}
+
+@keyframes toastIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes toastOut {
+  from { transform: translateX(0); opacity: 1; }
+  to   { transform: translateX(100%); opacity: 0; }
+}
+
+/**/
+
 #eliminarProducte:hover {
   background-color: rgb(216, 216, 216);
 }

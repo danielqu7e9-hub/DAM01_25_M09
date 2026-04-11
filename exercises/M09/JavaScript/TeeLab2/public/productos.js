@@ -162,6 +162,7 @@ function crearBotoAgregarCarrito(producte, article) {
   btn.innerHTML = "Agregar";
   btn.addEventListener("click", () => {
     addToCart(producte, article);
+    showToast("Producte afegit a la cistella!", "#27ae60");
   });
   return btn;
 }
@@ -292,6 +293,21 @@ function configurarBuscador() {
     if (e.target.closest("svg")) muestraProductes();
   });
 }
+
+function showToast(message, color) {
+  const container = document.getElementById("toast-container");
+  const toast = document.createElement("div");
+  toast.className = "toast";
+  toast.textContent = message;
+  toast.style.borderLeftColor = color;
+  container.appendChild(toast);
+
+  setTimeout(() => {
+    toast.classList.add("toast-exit");
+    toast.addEventListener("animationend", () => toast.remove());
+  }, 2500);
+}
+
 
 document.addEventListener("DOMContentLoaded", () => {
   muestraProductes();

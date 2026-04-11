@@ -36,11 +36,13 @@ function eliminarItem(key) {
     delete productes[key];
     saveCart(productes);
     revisarExistencia();
+    showToast("Producte eliminat", "#ae2727");
 }
 
 function removeCart() {
     localStorage.removeItem("productes");
     revisarExistencia();
+    showToast("Cistella buidada!", "#ae2727");
 }
 
 async function obtindreProducte(id) {
@@ -73,6 +75,20 @@ function revisarExistencia() {
 function activarBotoEliminarCarro() {
     const botoEliminar = document.getElementById("btn-vaciar");
     botoEliminar.addEventListener("click", removeCart);
+}
+
+function showToast(message, color) {
+  const container = document.getElementById("toast-container");
+  const toast = document.createElement("div");
+  toast.className = "toast";
+  toast.textContent = message;
+  toast.style.borderLeftColor = color;
+  container.appendChild(toast);
+
+  setTimeout(() => {
+    toast.classList.add("toast-exit");
+    toast.addEventListener("animationend", () => toast.remove());
+  }, 2500);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
