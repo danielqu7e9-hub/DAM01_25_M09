@@ -38,6 +38,13 @@ function activarBotonCarrito() {
   });
 }
 
+function activarBotonTickets() {
+  const boto = document.getElementById("toTicketsButton");
+  boto.addEventListener("click", () => {
+    window.location.href = "tickets.html";
+  });
+}
+
 // Crear botons
 
 // Boton talla
@@ -169,7 +176,7 @@ function crearBotoAgregarCarrito(producte, article) {
 
 function createKey(prodid, color, talla) {
   return `${prodid}-${color}-${talla}`;
-} 
+}
 
 function addToCart(producte, article) {
   const talla = article.querySelector("#seleccionarTalles button.selected")?.textContent.toLowerCase();
@@ -180,7 +187,7 @@ function addToCart(producte, article) {
 
   const productes = JSON.parse(localStorage.getItem("productes") ?? "{}");
 
-  if (productes[key])productes[key].quantitat += quantitat;
+  if (productes[key]) productes[key].quantitat += quantitat;
   else productes[key] = { id: producte.id, color, talla, quantitat };
 
   localStorage.setItem("productes", JSON.stringify(productes));
@@ -218,7 +225,7 @@ function crearArticle(producte) {
 // Mostrar productes
 async function muestraProductes() {
   let contenedor = document.querySelector("main");
-  contenedor.innerHTML = null; // Reiniciar el menú actual :) Alicia no me mates por usar null
+  contenedor.innerHTML = null;
   try {
     const response = await fetch(`http://${window.location.hostname}:4000/api/camisetes` + configurarFiltres());
     if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
@@ -227,7 +234,6 @@ async function muestraProductes() {
       let articleActual = crearArticle(element);
       contenedor.appendChild(articleActual);
     });
-    console.log(data);
   } catch (error) {
     console.error(error);
   }
@@ -294,6 +300,12 @@ function configurarBuscador() {
   });
 }
 
+function activarFiltresAuto() {
+  ["filter-talla", "filter-color", "filter-sort"].forEach(id =>
+    document.getElementById(id).addEventListener("change", muestraProductes)
+  );
+}
+
 function showToast(message, color) {
   const container = document.getElementById("toast-container");
   const toast = document.createElement("div");
@@ -308,14 +320,13 @@ function showToast(message, color) {
   }, 2500);
 }
 
-
 document.addEventListener("DOMContentLoaded", () => {
   muestraProductes();
-
   activarBotonCarrito();
+  activarBotonTickets();
   activarMenuFiltres();
   activarFiltrePerColors();
   esborrarFiltresActuals();
-
   configurarBuscador();
+  activarFiltresAuto();
 });

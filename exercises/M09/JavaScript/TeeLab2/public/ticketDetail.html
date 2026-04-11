@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeeLab Shop – Ticket</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <script src="scripts/ticketDetail.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>TeeLab Shop</h1>
+        <nav>
+            <button onclick="window.location.href='tickets.html'" title="Tornar als tickets">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"/>
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <main id="ticket-main">
+        <div class="ticket-detail-card">
+            <div class="ticket-detail-header">
+                <h2 class="ticket-id" id="ticket-id">—</h2>
+                <span class="ticket-estat" id="ticket-estado">—</span>
+            </div>
+
+            <div class="ticket-meta">
+                <div class="ticket-meta-item">
+                    <label>Data</label>
+                    <span id="ticket-fecha">—</span>
+                </div>
+                <div class="ticket-meta-item">
+                    <label>Client</label>
+                    <span id="ticket-cliente">—</span>
+                </div>
+                <div class="ticket-meta-item">
+                    <label>Adreça d'enviament</label>
+                    <span id="ticket-direccio">—</span>
+                </div>
+            </div>
+
+            <table id="ticket-items-table">
+                <thead>
+                    <tr>
+                        <th>Producte</th>
+                        <th>Talla</th>
+                        <th>Color</th>
+                        <th>Quantitat</th>
+                        <th>Preu unit.</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody id="ticket-items-tbody"></tbody>
+            </table>
+
+            <div class="ticket-total-box">
+                <span class="ticket-total-label">Total</span>
+                <span class="ticket-total-value" id="ticket-total">—</span>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
