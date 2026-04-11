@@ -217,9 +217,9 @@ function crearArticle(producte) {
 // Mostrar productes
 async function muestraProductes() {
   let contenedor = document.querySelector("main");
-  contenedor.innerHTML = null; // Reiniciar el menú actual
+  contenedor.innerHTML = null; // Reiniciar el menú actual :) Alicia no me mates por usar null
   try {
-    const response = await fetch('http://127.0.0.1:4000/api/camisetes' + configurarFiltres());
+    const response = await fetch(`http://${window.location.hostname}:4000/api/camisetes` + configurarFiltres());
     if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
     const data = await response.json();
     data.forEach(element => {

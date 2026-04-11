@@ -711,3 +711,14 @@ article p {
 
 .feedback-error { color: #e74c3c; }
 .feedback-ok    { color: #27ae60; font-weight: 600; }
+
+#eliminarProducte:hover {
+  background-color: rgb(216, 216, 216);
+}
+
+#eliminarProducte button {
+  padding: 5px;
+  border: 0px;
+  border-radius: 2px;
+  background: transparent;
+}

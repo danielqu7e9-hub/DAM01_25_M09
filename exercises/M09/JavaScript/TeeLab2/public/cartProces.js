@@ -1,5 +1,5 @@
-function saveCart() {
-
+function saveCart(productes) {
+    localStorage.setItem("productes", JSON.stringify(productes));
 }
 
 function loadCart() {
@@ -12,30 +12,40 @@ async function renderCart(actualCart) {
     for (const [key, obj] of Object.entries(actualCart)) {
         const producte = await obtindreProducte(obj.id);
         const subtotal = (producte.precioBase * obj.quantitat).toFixed(2);
-        const tr = document.createElement("tr");
+        const tr = crearTableRow(key, obj, producte, subtotal);
+        taula.appendChild(tr);
+    }
+}
+
+function crearTableRow(key, obj, producte, subtotal) {
+    const tr = document.createElement("tr");
         tr.innerHTML = `
             <td>${producte.nombre}</td>
             <td>${obj.talla.toUpperCase()}</td>
-            <td>${obj.color}</td>
+            <td>${obj.color.charAt(0).toUpperCase() + obj.color.slice(1)}</td>
             <td>${obj.quantitat}</td>
             <td>${producte.precioBase.toFixed(2)} €</td>
             <td>${subtotal} €</td>
-            <td><button onclick="eliminarItem('${key}')">✕</button></td>
+            <td id="eliminarProducte" onclick="eliminarItem('${key}')"><button>✕</button></td>
         `;
-        taula.appendChild(tr);
-    }
+    return tr;
 }
 
 function eliminarItem(key) {
     const productes = JSON.parse(localStorage.getItem("productes") ?? "{}");
     delete productes[key];
-    localStorage.setItem("productes", JSON.stringify(productes));
-    loadCart();
+    saveCart(productes);
+    revisarExistencia();
+}
+
+function removeCart() {
+    localStorage.removeItem("productes");
+    revisarExistencia();
 }
 
 async function obtindreProducte(id) {
   try {
-    const response = await fetch('http://127.0.0.1:4000/api/camisetes/' + `${id}`);
+    const response = await fetch(`http://${window.location.hostname}:4000/api/camisetes/${id}`);
     if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
     const data = await response.json();
     console.log(data);
@@ -47,8 +57,8 @@ async function obtindreProducte(id) {
 
 function noExisteixApartat() {
     return `<tr id="cart-empty-msg">
-                            <td colspan="7"><p>La cistella és buida.</p></td>
-                        </tr>`
+                <td colspan="7"><p>La cistella és buida.</p></td>
+            </tr>`
 }
 
 function revisarExistencia() {
@@ -60,6 +70,12 @@ function revisarExistencia() {
     }
 }
 
+function activarBotoEliminarCarro() {
+    const botoEliminar = document.getElementById("btn-vaciar");
+    botoEliminar.addEventListener("click", removeCart);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-    revisarExistencia()
+    revisarExistencia();
+    activarBotoEliminarCarro();
 });
