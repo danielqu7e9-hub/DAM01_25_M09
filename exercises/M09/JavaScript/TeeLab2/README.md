@@ -2,6 +2,8 @@
 
 S'arranca entrant en la carpeta de server API, obrir una terminal en aquesta carpeta i fer la següent comanda: ```npm run start```
 
+Si no funciona prova a fer ```npm install``` per descarregar el node_modules que esta en el .gitignore
+
 **Arrancar el frontend**
 
 S'arranca entrant en la carpeta del public i obrir amb rightclick i seleccionar FiveServer
