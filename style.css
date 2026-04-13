@@ -206,4 +206,22 @@ footer {
     width: 100%;
 }
 
-/* ... (Manten los estilos de .card, .classroom-btn y los hovers del mensaje anterior) ... */
+/* Exercise Sections */
+.exercise-section {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto 10px auto;
+}
+
+.section-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    padding: 0 20px 10px 20px;
+    margin: 0;
+    border-bottom: 1px solid #1e1e26;
+}
+
+.m09-title { color: var(--m09-accent); }
+.m04-title { color: var(--m04-accent); }
